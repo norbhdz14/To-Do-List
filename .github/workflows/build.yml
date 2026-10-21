@@ -12,13 +12,28 @@ jobs:
     - name: Clonar repositorio
       uses: actions/checkout@v4
 
-    - name: Compilar con Buildozer (Contenedor Oficial)
-      uses: kivy/buildozer-action@v1
+    - name: Configurar Python 3.11
+      uses: actions/setup-python@v5
       with:
-        filename: buildozer.spec
-        release: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        python-version: '3.11'
+
+    - name: Instalar dependencias del sistema
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential git python3-dev \
+          openjdk-17-jdk autoconf libtool pkg-config \
+          zlib1g-dev libltdl-dev libffi-dev libssl-dev
+
+    - name: Instalar Buildozer y Cython compatible
+      run: |
+        pip install --upgrade pip
+        pip install cython==0.29.36 buildozer
+
+    - name: Compilar APK con Buildozer
+      run: |
+        unset GRADLE_HOME
+        buildozer -v android debug
 
     - name: Subir APK como Artifact
       uses: actions/upload-artifact@v4
