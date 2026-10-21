@@ -9,6 +9,9 @@ source.include_exts = py,png,jpg,kv,atlas,json
 version = 1.0.0
 requirements = python3,kivy
 
+# --- LÍNEA PARA EVITAR EL ERROR DE CPYTHON ---
+p4a.branch = master
+
 orientation = portrait
 fullscreen = 0
 
