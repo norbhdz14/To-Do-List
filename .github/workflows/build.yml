@@ -33,6 +33,9 @@ jobs:
     - name: Compilar APK con Buildozer
       run: |
         unset GRADLE_HOME
+        unset ANDROID_HOME
+        unset ANDROID_SDK_ROOT
+        unset ANDROID_NDK_HOME
         buildozer -v android debug
 
     - name: Subir APK como Artifact
