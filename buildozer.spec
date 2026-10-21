@@ -18,10 +18,12 @@ android.permissions = INTERNET
 android.api = 33
 android.minapi = 21
 android.ndk_api = 21
+
+# --- LÍNEA CLAVE PARA EVITAR EL ERROR DE NDK ---
+android.ndk = 25b
+
 android.archs = arm64-v8a, armeabi-v7a
 android.allow_backup = True
-
-# --- LÍNEA CLAVE PARA QUE NO FALLE EL BUILD ---
 android.accept_sdk_license = True
 
 [buildozer]
