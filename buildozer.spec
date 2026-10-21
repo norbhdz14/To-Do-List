@@ -9,8 +9,8 @@ source.include_exts = py,png,jpg,kv,atlas,json
 version = 1.0.0
 requirements = python3,kivy
 
-# --- LÍNEA PARA EVITAR EL ERROR DE CPYTHON ---
-p4a.branch = master
+# Usar una versión anterior y estable de python-for-android que use Python 3.11
+p4a.branch = release-2024.09.22
 
 orientation = portrait
 fullscreen = 0
