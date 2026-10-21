@@ -25,6 +25,10 @@ jobs:
           openjdk-17-jdk autoconf libtool pkg-config \
           zlib1g-dev libltdl-dev libffi-dev libssl-dev
 
+    - name: Limpiar librerías host incompatibles con Android
+      run: |
+        sudo apt-get remove -y uuid-dev libuuid-dev || true
+
     - name: Instalar Buildozer y Cython compatible
       run: |
         pip install --upgrade pip
